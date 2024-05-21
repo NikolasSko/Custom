@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('users')) {
             Schema::create('users', function (Blueprint $table) {
-                $table->increments('user_ID');
+                $table->increments('id');
                 $table->string('name', 255);
                 $table->string('telegram', 255)->nullable();
                 $table->string('login', 255)->unique();

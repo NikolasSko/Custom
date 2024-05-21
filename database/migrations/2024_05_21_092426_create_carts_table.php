@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('carts')) {
             Schema::create('carts', function (Blueprint $table) {
-                $table->increments('cart_ID');
+                $table->increments('id');
                 $table->unsignedInteger('user_id');
                 $table->decimal('total_price', 10, 2);
                 $table->timestamps();

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('designs')) {
             Schema::create('designs', function (Blueprint $table) {
-                $table->increments('design_ID');
+                $table->increments('id');
                 $table->unsignedInteger('user_id');
                 $table->unsignedInteger('item');
                 $table->string('gender', 50);

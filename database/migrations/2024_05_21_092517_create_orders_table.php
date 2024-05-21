@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('orders')) {
             Schema::create('orders', function (Blueprint $table) {
-                $table->increments('order_ID');
+                $table->increments('id');
                 $table->unsignedInteger('user_id');
                 $table->text('address');
                 $table->string('card', 255);

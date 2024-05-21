@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('cart_items')) {
             Schema::create('cart_items', function (Blueprint $table) {
-                $table->increments('cart_items_ID');
+                $table->increments('id');
                 $table->unsignedInteger('cart_id');
                 $table->unsignedInteger('item_id');
                 $table->timestamps();

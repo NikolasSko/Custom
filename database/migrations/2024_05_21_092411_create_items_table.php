@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('items')) {
             Schema::create('items', function (Blueprint $table) {
-                $table->increments('item_ID');
+                $table->increments('id');
                 $table->string('name', 255);
                 $table->string('photo', 255);
                 $table->string('gender', 50);

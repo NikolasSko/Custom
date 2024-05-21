@@ -13,7 +13,7 @@ return new class extends Migration
     {
         if (!Schema::hasTable('order_items')) {
             Schema::create('order_items', function (Blueprint $table) {
-                $table->increments('order_items_ID');
+                $table->increments('id');
                 $table->unsignedInteger('order_id');
                 $table->unsignedInteger('item_id');
                 $table->timestamps();
