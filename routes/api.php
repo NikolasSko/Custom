@@ -12,4 +12,10 @@ use \App\Http\Controllers\Api\CartItemController;
 
 Route::apiResources([
     'items' => ItemController::class,
+    'carts' => CartController::class,
+    'orders' => OrderController::class,
+    'orderitems' => OrderItemController::class,
+    'cartitems' => CartItemController::class,
+    'users' => UserController::class,
+    'designs' => DesignController::class,
 ]);

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\DesignResource;
+use App\Models\Design;
 use Illuminate\Http\Request;
 
 class DesignController extends Controller
@@ -12,7 +14,7 @@ class DesignController extends Controller
      */
     public function index()
     {
-        //
+        return DesignResource::collection(Design::all());
     }
 
     /**
@@ -28,7 +30,7 @@ class DesignController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return new DesignResource(Design::findOrFail($id));
     }
 
     /**

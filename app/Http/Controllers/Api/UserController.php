@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ItemStoreRequest;
+use App\Http\Resources\UserResource;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -12,15 +15,17 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        return UserResource::collection(User::all());
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ItemStoreRequest $request)
     {
-        //
+        $created_user = User::create($request->validated());
+
+        return new UserResource($created_user);
     }
 
     /**
@@ -28,7 +33,7 @@ class UserController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return new UserResource(User::findOrFail($id));
     }
 
     /**

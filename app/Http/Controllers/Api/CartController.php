@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CartResource;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
@@ -12,7 +14,7 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        return CartResource::collection(Cart::all());
     }
 
     /**
@@ -28,7 +30,7 @@ class CartController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return new CartResource(Cart::findOrFail($id));
     }
 
     /**
