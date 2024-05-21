@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\CartResource;
 use App\Models\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class CartController extends Controller
 {
@@ -22,7 +23,9 @@ class CartController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $created_cart = Cart::create($request->all());
+
+        return new CartResource($created_cart);
     }
 
     /**
@@ -44,8 +47,10 @@ class CartController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Cart $cart)
     {
-        //
+        $cart->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

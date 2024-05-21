@@ -9,7 +9,7 @@ class Item extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'item_ID';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'name', 'photo', 'gender', 'size', 'description', 'price', 'status'

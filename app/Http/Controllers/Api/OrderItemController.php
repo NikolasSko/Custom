@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\OrderItemResource;
 use App\Models\OrderItem;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class OrderItemController extends Controller
 {
@@ -22,7 +23,9 @@ class OrderItemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $created_orderItem = OrderItem::create($request->all());
+
+        return new OrderItemResource($created_orderItem);
     }
 
     /**
@@ -44,8 +47,10 @@ class OrderItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(OrderItem $orderItem)
     {
-        //
+        $orderItem->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

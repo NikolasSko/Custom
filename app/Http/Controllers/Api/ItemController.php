@@ -7,6 +7,7 @@ use App\Http\Requests\ItemStoreRequest;
 use App\Http\Resources\ItemResource;
 use App\Models\Item;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 
 class ItemController extends Controller
 {
@@ -47,8 +48,11 @@ class ItemController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Item $item)
     {
-        //
+
+        $item->delete();
+
+        return response(null, Response::HTTP_NO_CONTENT);
     }
 }

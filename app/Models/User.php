@@ -11,7 +11,7 @@ class User extends Model
 
     public $timestamps = false;
 
-    protected $primaryKey = 'user_ID';
+    protected $primaryKey = 'id';
 
     protected $fillable = [
         'name', 'telegram', 'login', 'password', 'is_admin'
