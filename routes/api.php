@@ -19,3 +19,6 @@ Route::apiResources([
     'users' => UserController::class,
     'designs' => DesignController::class,
 ]);
+Route::post('/register', 'AuthController@register');
+Route::post('/login', 'AuthController@login');
+Route::post('/logout', 'AuthController@logout')->middleware('auth:api');
