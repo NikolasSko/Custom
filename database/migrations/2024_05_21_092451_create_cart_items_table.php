@@ -14,8 +14,8 @@ return new class extends Migration
         if (!Schema::hasTable('cart_items')) {
             Schema::create('cart_items', function (Blueprint $table) {
                 $table->increments('id');
-                $table->unsignedInteger('cart_id');
-                $table->unsignedInteger('item_id');
+                $table->foreignId('cart_id')->constrained();
+                $table->foreignId('item_id')->constrained();
                 $table->timestamps();
             });
         }

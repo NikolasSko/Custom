@@ -14,7 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('designs')) {
             Schema::create('designs', function (Blueprint $table) {
                 $table->increments('id');
-                $table->unsignedInteger('user_id');
+                $table->foreignId('user_id')->constrained();
                 $table->unsignedInteger('item');
                 $table->string('gender', 50);
                 $table->string('size', 50);

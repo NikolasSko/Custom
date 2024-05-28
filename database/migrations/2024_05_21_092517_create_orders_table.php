@@ -14,7 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('orders')) {
             Schema::create('orders', function (Blueprint $table) {
                 $table->increments('id');
-                $table->unsignedInteger('user_id');
+                $table->foreignId('user_id')->constrained();
                 $table->text('address');
                 $table->string('card', 255);
                 $table->decimal('total_price', 10, 2);

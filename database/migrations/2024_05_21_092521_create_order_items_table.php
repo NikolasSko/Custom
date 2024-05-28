@@ -14,8 +14,8 @@ return new class extends Migration
         if (!Schema::hasTable('order_items')) {
             Schema::create('order_items', function (Blueprint $table) {
                 $table->increments('id');
-                $table->unsignedInteger('order_id');
-                $table->unsignedInteger('item_id');
+                $table->foreignId('order_id')->constrained();
+                $table->foreignId('item_id')->constrained();
                 $table->timestamps();
             });
         }
