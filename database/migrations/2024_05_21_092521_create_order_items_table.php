@@ -14,8 +14,8 @@ return new class extends Migration
         if (!Schema::hasTable('order_items')) {
             Schema::create('order_items', function (Blueprint $table) {
                 $table->increments('id');
-                $table->foreignId('order_id')->constrained();
-                $table->foreignId('item_id')->constrained();
+                $table->foreign('order_id')->references('id')->on('orders');
+                $table->foreign('item_id')->references('id')->on('items');
                 $table->timestamps();
             });
         }

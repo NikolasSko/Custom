@@ -14,7 +14,7 @@ return new class extends Migration
         if (!Schema::hasTable('carts')) {
             Schema::create('carts', function (Blueprint $table) {
                 $table->increments('id');
-                $table->foreignId('user_id')->constrained();
+                $table->foreign('user_id')->references('id')->on('users');
                 $table->decimal('total_price', 10, 2);
                 $table->timestamps();
             });
