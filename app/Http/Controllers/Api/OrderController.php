@@ -10,17 +10,11 @@ use Illuminate\Http\Response;
 
 class OrderController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return OrderResource::collection(Order::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $created_order = Order::create($request->all());
@@ -28,25 +22,16 @@ class OrderController extends Controller
         return new OrderResource($created_order);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         return new OrderResource(Order::findOrFail($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Order $order)
     {
         $order->delete();

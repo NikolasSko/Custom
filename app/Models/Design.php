@@ -18,4 +18,9 @@ class Design extends Model
     {
         return $this->belongsTo(Item::class, 'item', 'item_ID');
     }
+
+    protected $fillable = [
+        'user_id', 'item', 'gender', 'size', 'design_description', 'reference', 'is_design'
+    ];
+    public $timestamps = false;
 }

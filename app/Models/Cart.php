@@ -18,4 +18,9 @@ class Cart extends Model
     {
         return $this->hasMany(CartItem::class, 'cart_id', 'cart_ID');
     }
+
+    protected $fillable = [
+        'user_id', 'total_price'
+    ];
+    public $timestamps = false;
 }

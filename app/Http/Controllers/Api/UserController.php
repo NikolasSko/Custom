@@ -12,17 +12,11 @@ use Illuminate\Http\Response;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return UserResource::collection(User::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(ItemStoreRequest $request)
     {
         $created_user = User::create($request->validated());
@@ -30,17 +24,11 @@ class UserController extends Controller
         return new UserResource($created_user);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         return new UserResource(User::findOrFail($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UserStoreRequest $request, User $user)
     {
         $user->update($request->validated());
@@ -48,9 +36,6 @@ class UserController extends Controller
         return $user;
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(User $user)
     {
         $user->delete();

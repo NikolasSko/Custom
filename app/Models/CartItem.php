@@ -18,4 +18,9 @@ class CartItem extends Model
     {
         return $this->belongsTo(Item::class, 'item_id', 'item_ID');
     }
+
+    protected $fillable = [
+        'cart_id', 'item_id'
+    ];
+    public $timestamps = false;
 }

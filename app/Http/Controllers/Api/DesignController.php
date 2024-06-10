@@ -10,17 +10,11 @@ use Illuminate\Http\Response;
 
 class DesignController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return DesignResource::collection(Design::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $created_design = Design::create($request->all());
@@ -28,25 +22,16 @@ class DesignController extends Controller
         return new DesignResource($created_design);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         return new DesignResource(Design::findOrFail($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Design $design)
     {
         $design->delete();

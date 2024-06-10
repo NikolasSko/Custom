@@ -10,17 +10,11 @@ use Illuminate\Http\Response;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         return CartResource::collection(Cart::all());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $created_cart = Cart::create($request->all());
@@ -28,25 +22,16 @@ class CartController extends Controller
         return new CartResource($created_cart);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         return new CartResource(Cart::findOrFail($id));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Cart $cart)
     {
         $cart->delete();
