@@ -22,3 +22,4 @@ Route::apiResources([
 Route::post('/register', 'AuthController@register');
 Route::post('/login', 'AuthController@login');
 Route::post('/logout', 'AuthController@logout')->middleware('auth:api');
+Route::get('/search/{name}', [ItemController::class, 'search']);

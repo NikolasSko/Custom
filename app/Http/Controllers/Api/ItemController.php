@@ -40,4 +40,9 @@ class ItemController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+     public function search($name)
+    {
+        return Item::where("name", "like", "%".$name. "%")->get();
+    }
 }
